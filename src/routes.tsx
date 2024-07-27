@@ -5,12 +5,17 @@ import ContactUs from "./pages/Contact-us/ContactUs";
 import Cart from "./pages/Cart/Cart";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
+import RestaurantList from "./pages/RestaurantList/RestaurantList";
 
 export const routes = createBrowserRouter([
     {
         path:'/',
         element:<Home/>,
         children:[
+            {
+                path:'/',
+                element:<RestaurantList/>
+            },
             {
                 path:'about',
                 element:<About/>

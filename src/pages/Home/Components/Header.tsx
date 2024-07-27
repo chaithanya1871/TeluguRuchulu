@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { BsCart4 } from "react-icons/bs";
+import { useOnline } from "../../../hooks/useOnline";
 
 const Header = () => {
+    const isOnline = useOnline();
+    console.log(isOnline);
     return (
         <div className="flex justify-between items-center  shadow-lg z-10 w-full bg-slate-50 p-4">
             <div className=" flex items-center">
@@ -13,7 +16,9 @@ const Header = () => {
                     <li className="p-3 mr-10 hover:text-black"> <Link to='about'>About</Link></li>
                     <li className="p-3 mr-10 hover:text-black"><Link to='contact-us'>ContactUs</Link></li>
                     <li className="p-3 mr-10 hover:text-black"><Link to='cart'><BsCart4 className="inline text-2xl text-orange-400"/></Link></li>
-                    <li className="p-3 mr-10 hover:text-black"><Link to='/sign-in'>Login</Link></li>
+                    <li className={`p-3 mr-10 hover:text-black ${isOnline ? 'bg-green-600' : 'bg-red-400'}`}>
+                        <Link to='/sign-in'>Login</Link>
+                    </li>
                 </ul>
             </div>
         </div>
