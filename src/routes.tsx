@@ -6,6 +6,7 @@ import Cart from "./pages/Cart/Cart";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import RestaurantList from "./pages/RestaurantList/RestaurantList";
+import RestaurantMenu from "./pages/RestaurantMenu/RestaurantMenu";
 
 export const routes = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ export const routes = createBrowserRouter([
             {
                 path:'/',
                 element:<RestaurantList/>
+            },
+            {
+                path:'/res-menu/:resId',
+                element:<RestaurantMenu/>
             },
             {
                 path:'about',

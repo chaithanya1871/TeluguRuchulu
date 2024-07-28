@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { REACT_MEDIA_ASSETS_BASE_URL } from "../../../utils/constants";
 import { CiStar } from "react-icons/ci";
 
 
 const RestaurantCard = ({resData}:any) => {
+    const navigate = useNavigate();
+    const viewRestaurantMenu = (resId:number) =>{
+        navigate(`res-menu/${resId}`)
+    }
     return (
-        <div className="w-[240px] p-3 cursor-pointer border border-slate-100 m-5 rounded-md shadow-md">
+        <div className="w-[240px] p-3 cursor-pointer border border-slate-100 m-5 rounded-md shadow-md" onClick={()=>{viewRestaurantMenu(resData?.info.id)}}>
             <img src={REACT_MEDIA_ASSETS_BASE_URL+resData?.info?.cloudinaryImageId} className=" w-full"/>
             <h2 className=" font-bold">{resData?.info.name}</h2>
             <h3 className=" overflow-ellipsis whitespace-nowrap overflow-hidden">{resData?.info?.cuisines?.join(',')}</h3>
