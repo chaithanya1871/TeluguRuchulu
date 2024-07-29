@@ -11,14 +11,18 @@ const Cart = () => {
     }
 
     return (
+        <div>
+            <h3 className=' text-center font-bold text-2xl mt-10'>Items in your cart:</h3>
         <div className=' flex justify-center items-center'>
+            
             {items.length > 0 ? (
-                <div className=' flex flex-col justify-center items-center h-[100vh] w-[700px]'>
-                    <h3 className=' text-center font-bold text-2xl mt-10'>Items in your cart:</h3>
+                <div className=' flex flex-col mt-10  items-center h-[100vh] w-[700px]'>
                     <div className=' flex flex-col w-full justify-center items-center'>
                         {items.map((item:any, index:any) => (
                             <ItemCard card={item} index={index}/>
                         ))}
+                    </div>
+                    <div className=' flex justify-between items-center w-full mt-20'>
                     </div>
                 </div>
             ) : (
@@ -30,6 +34,9 @@ const Cart = () => {
                 </div>
             )}
         </div>
+
+        </div>
+        
     );
 };
 

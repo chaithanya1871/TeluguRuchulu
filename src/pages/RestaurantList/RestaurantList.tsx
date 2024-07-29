@@ -27,6 +27,10 @@ const RestaurantList = () => {
         }
 
     }
+    console.log("feffe", filteredRestaurantData);
+    if(filteredRestaurantData.length===0){
+        return <div className=" text-center text-2xl">Loading.....</div>
+    }
     return (
         <div className=" ">
             <div className=" flex justify-center m-10">
@@ -43,8 +47,7 @@ const RestaurantList = () => {
                     <RestaurantCard resData={data} key={data.info.id}/>
                 ))}
                 
-            </div>:<>Loadinggggg</>}
-            <div></div>
+            </div>:<div>Loadinggggg</div>}
         </div>
     );
     console.log(restaurantData);

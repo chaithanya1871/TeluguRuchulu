@@ -6,9 +6,10 @@ import MenuCard from "./Components/MenuCard";
 
 const RestaurantMenu = () => {
     const {resId} = useParams();
-    const [restaurant,menuData] = useResMenuData(resId)
-    console.log("restaurant", restaurant);
-    console.log("menu", menuData);
+    const [restaurant,menuData] = useResMenuData(resId);
+    if(!restaurant){
+        return <div className=" text-2xl text-center">Loading........ </div>
+    }
     return (
         <div className="flex  flex-col items-center max-w-[1080px]">
             <div className=" flex gap-5 bg-[#171717] p-4 w-[800px] h-[200px]">
@@ -34,7 +35,7 @@ const RestaurantMenu = () => {
             
             <div className=" flex  flex-col justify-center items-center flex-wrap w-[700px]" >
                 {menuData && menuData.map((menuItem)=>(
-                    <MenuCard card = {menuItem}/>
+                    <MenuCard card = {menuItem} key={menuItem?.id}/>
                 ))}
             </div>
 
