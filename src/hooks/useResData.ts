@@ -25,11 +25,13 @@ export const useResData = (API_URL:string)=>{
         try{
             const response = await axios.get(API_URL);
             const res_data = checkJsonData(response.data);
+            console.log(res_data);
             setAllRestaurants(res_data);
             setFilteredRestaurants(res_data);
         }
         catch (error){
-            console.log(error)
+            setAllRestaurants([]);
+            setFilteredRestaurants([]);
         }
     }
     return [allRestaurants, filteredRestaurants];

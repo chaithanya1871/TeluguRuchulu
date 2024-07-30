@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useResData } from "../../hooks/useResData";
 import RestaurantCard from "./Components/RestaurantCard";
+import LocationContext from "../../context/useLocationContext";
 function filterData(searchText:string, restaurants:any) {
     console.log(searchText);
     const filterData = restaurants.filter((restaurant:any) =>
@@ -11,9 +12,10 @@ function filterData(searchText:string, restaurants:any) {
   
 
 const RestaurantList = () => {
-
+    const {latitude, longitude} = useContext(LocationContext);
+    console.log(latitude,longitude, "txt")
     const [searchTxt, setSearchTxt] = useState<string>("");
-    const [restaurantData, filteredRestaurantData] = useResData("https://foodfire.onrender.com/api/restaurants?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
+    const [restaurantData, filteredRestaurantData] = useResData(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`);
 
     const [filteredRes, setFilteredRes] = useState([]);
     const searchData  =(search_text:string, restaurants:any) =>{
@@ -28,7 +30,7 @@ const RestaurantList = () => {
 
     }
     console.log("feffe", filteredRestaurantData);
-    if(filteredRestaurantData.length===0){
+    if(filteredRestaurantData?.length===0){
         return <div className=" text-center text-2xl">Loading.....</div>
     }
     return (

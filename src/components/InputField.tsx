@@ -3,9 +3,9 @@ export interface InputFieldProps{
     value:string,
     onChangeHandler:React.ChangeEventHandler<HTMLInputElement>,
     placeholder:string,
-    label:string,
+    label?:string,
     type:string,
-    errorMsg:string
+    errorMsg?:string
 
 
 }

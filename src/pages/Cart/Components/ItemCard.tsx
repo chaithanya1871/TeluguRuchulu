@@ -22,7 +22,7 @@ const ItemCard = (card:any) => {
               <h3 className=' font-bold text-lg mb-2'>{card.card.name}</h3>
               <h5>{card.card.description}</h5>
               <div className=' flex items-center gap-1 mt-3 font-bold text-lg'>
-                <p>{card.card.price? (card.price)/100 : (card.card.defaultPrice)/100}</p>
+                <p>{card.card.price? (card.card.price)/100 : (card.card.defaultPrice)/100}</p>
                 <FaRupeeSign />
               </div>
              
